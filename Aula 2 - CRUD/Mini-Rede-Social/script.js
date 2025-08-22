@@ -22,7 +22,21 @@ let posts = [
 window.onload = function(){
     mostrarPosts();
 
-    document.querySelector("#postForm").addEventListener("submit", addPost)
+    document.querySelector("#postForm").addEventListener("submit", addPost);
+    document.querySelector('#postList').addEventListener('click', handleClick);
+};
+
+function handleClick(infosDoEvento) {
+  const action = infosDoEvento.target.dataset.action;
+  const index = infosDoEvento.target.dataset.index;
+
+  if (action === "Editar"){
+    editarPosts(index);
+  }
+  else if (action === "Apagar"){
+    deletarPosts(index);
+  }
+
 }
 
 //CREATE
@@ -43,7 +57,9 @@ function addPost(infosDoEvento){
 
   posts.unshift(novoPost)
 
-  mostrarPosts()
+  document.querySelector('#postForm').reset();
+
+  mostrarPosts();
 
 }
 
@@ -55,7 +71,7 @@ function mostrarPosts(){
   listaPosts.innerHTML = ""
 
 //Passando pela array criando um tweet para cada um
-  posts.forEach(pegaItem => {
+  posts.forEach((pegaItem,index) => {
     const cardPost = document.createElement("div")
     cardPost.classList.add("card")
 
@@ -64,17 +80,31 @@ function mostrarPosts(){
     <img src="${pegaItem.image}"/>
     <h5>Categoria: ${pegaItem.category}</h5>
     <h5>Data e hora: ${pegaItem.date}</h5>
-    <button>Editar</button>
-    <button>Apagar</button>
+    <button data-action="Editar" data-index="${index}">Editar</button>
+    <button data-action="Apagar" data-index="${index}">Apagar</button>
     `
     listaPosts.append(cardPost)
   })
 }
 
 //UPDATE
-function editarPosts(){}
+function editarPosts(index){
+  const novoTexto = prompt('Edite seu post', posts[index].text);
+  posts[index].text = novoTexto;
+
+  mostrarPosts();
+}
 //DELETE
-function deletarPosts(){}
+function deletarPosts(index){
+  const confirmar = confirm("Você deseja realmente excluir?")
+
+  if(confirmar){
+    posts.splice(index,1);
+  }
+  
+  mostrarPosts();
+
+}
 // const pessoa = {
 //    nome: "nat",
 //    idade: 18,
