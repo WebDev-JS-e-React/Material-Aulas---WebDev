@@ -21,6 +21,7 @@ let posts = [
 
 window.onload = function(){
     mostrarPosts();
+    carregarPosts();
 
     document.querySelector("#postForm").addEventListener("submit", addPost);
     document.querySelector('#postList').addEventListener('click', handleClick);
@@ -57,6 +58,7 @@ function addPost(infosDoEvento){
 
   posts.unshift(novoPost)
 
+  salvarPosts();
   document.querySelector('#postForm').reset();
 
   mostrarPosts();
@@ -93,6 +95,8 @@ function editarPosts(index){
   posts[index].text = novoTexto;
 
   mostrarPosts();
+
+  salvarPosts();
 }
 //DELETE
 function deletarPosts(index){
@@ -100,10 +104,21 @@ function deletarPosts(index){
 
   if(confirmar){
     posts.splice(index,1);
+    salvarPosts();
   }
   
   mostrarPosts();
+}
 
+function salvarPosts(){
+  localStorage.setItem("posts", JSON.stringify(posts));
+}
+
+function carregarPosts(){
+  const postsGuardados = localStorage.getItem("posts");
+  if (postsGuardados){
+    posts = JSON.parse(postsGuardados)
+  }
 }
 // const pessoa = {
 //    nome: "nat",
