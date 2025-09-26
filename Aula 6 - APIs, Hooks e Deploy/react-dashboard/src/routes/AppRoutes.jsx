@@ -5,7 +5,7 @@ import Usuarios from "../pages/Usuarios";
 import Relatorios from "../pages/Relatorios";
 import Configuracoes from "../pages/Configuracoes";
 import PageNotFound from "../pages/PageNotFound";
-import PostUsuario from "../pages/PostsUsuario";
+import PostUsuario from "../pages/PostsUsuarios";
 
 export const router = createBrowserRouter([
   {
