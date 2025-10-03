@@ -1,4 +1,4 @@
-export function Card({ icon: Icon, title, description }) {
+export default function Card({ icon: Icon, title, description }) {
   return (
     <div className="flex flex-col items-center p-6 w-48 rounded-lg shadow-md bg-white hover:shadow-lg transition">
       <Icon className="text-4xl text-blue-500 mb-3" />
