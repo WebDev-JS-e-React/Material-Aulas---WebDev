@@ -1,3 +1,5 @@
+import Card from "@/components/Card";
+import Section from "@/components/Section";
 import { FiSettings, FiMoon, FiBell, FiGlobe } from "react-icons/fi";
 import { FiUser, FiLock, FiCreditCard, FiPackage } from "react-icons/fi";
 import { FiTool, FiWifi, FiDatabase, FiShield } from "react-icons/fi";
@@ -27,8 +29,27 @@ export default function Configuracoes() {
 
   return (
     <div className="p-6 flex-1 bg-gray-100">
-      <h1 className="text-2xl font-bold">Configurações</h1>
-      <p className="mt-2 text-gray-600">Página de configurações.</p>
+      <Section titulo="Configurações gerais">
+        {
+          data.geral.map(pegaItem => (
+            <Card {...pegaItem}/>
+          ))
+        }
+      </Section>
+      <Section titulo="Conta">
+      {
+          data.conta.map(pegaItem => (
+            <Card {...pegaItem}/>
+          ))
+        }
+      </Section>
+      <Section titulo="Avançado">
+      {
+          data.avancado.map(pegaItem => (
+            <Card {...pegaItem}/>
+          ))
+        }
+      </Section>
     </div>
   );
 }
