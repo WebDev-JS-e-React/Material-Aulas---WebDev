@@ -1,4 +1,4 @@
-export function Section({ title, children }) {
+export default function Section({ title, children }) {
   return (
     <div className="mb-12">
       <h2 className="text-2xl font-bold mb-6">{title}</h2>
