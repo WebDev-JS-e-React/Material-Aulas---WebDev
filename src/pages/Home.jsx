@@ -1,8 +1,13 @@
 export default function Home() {
   
-  return (
-    <div>
-      <h1 className="text-3xl font-bold text-center mb-8">GitHub Repositories Explorer</h1>
-    </div>
-  );
+  const [reactRepos, setReactRepos] = React.useState([]);
+  const API = import.meta.env.VITE_GITHUB_API;
+
+  React.useEffect(() => {
+    fetch(`${API}react&per_page=5`)
+    .then((response) => response.json())
+    .then((data) => setReactRepos(data.items))
+  }, []);
+
 }
+
