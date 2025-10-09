@@ -1,0 +1,58 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  background-color: #000;
+  color: #fff;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+.lista-metodos {
+  list-style: decimal inside;
+  padding: 0;
+
+  & li {
+  margin-bottom: 2em;
+  }
+
+  & h2{
+    display: inline-block;
+  }
+}
+
+
+
+.linha {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1em;
+  
+  
+}
+
+.coluna {
+  width: 48%;
+}
+
+button {
+  margin-top: 10px;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  background-color: #ec0333;;
+  border: 1px solid #000;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  border: 1px solid #fff;
+  transition: all 0.5s ease;
+}
