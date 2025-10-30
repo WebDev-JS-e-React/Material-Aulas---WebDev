@@ -4,6 +4,7 @@ import Dashboard from "../pages/Dashboard";
 import Usuarios from "../pages/Usuarios";
 import Relatorios from "../pages/Relatorios";
 import Configuracoes from "../pages/Configuracoes";
+import Times from "../pages/Times";
 import PageNotFound from "../pages/PageNotFound";
 
 export const router = createBrowserRouter([
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path: "configuracoes",
         element: <Configuracoes />,
+      },
+      {
+        path: "times",
+        element: <Times />,
       },
     ],
   },
